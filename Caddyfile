@@ -1,4 +1,16 @@
-:{$PORT}
+# :{$PORT}
 
-root * /srv
-file_server
+# root * /srv
+# file_server
+
+
+caddyd.dva.autos {
+    # 根目录静态文件服务
+    root * /srv
+    file_server
+
+    # 代理到本地 Komga 服务
+    handle_path /komga/* {
+        reverse_proxy komga.dva.autos
+    }
+}
