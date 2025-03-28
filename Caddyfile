@@ -7,7 +7,7 @@
 
 :80 {
     reverse_proxy {
-        to http://komga.dva.autos
+        to https://komga.dva.autos
         transport http {
             tls
             tls_insecure_skip_verify
@@ -19,7 +19,7 @@
 
 :443 {
     reverse_proxy {
-        to http://komga.dva.autos
+        to https://komga.dva.autos
         transport http {
             tls
             tls_insecure_skip_verify
