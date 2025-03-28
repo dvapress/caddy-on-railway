@@ -10,7 +10,7 @@ caddyd.dva.autos {
     # file_serv
 
     # 代理到本地 Komga 服务
-    reverse_proxy https://komga.dva.autos {
+    reverse_proxy komga.dva.autos {
         transport http {
             tls
             tls_insecure_skip_verify
