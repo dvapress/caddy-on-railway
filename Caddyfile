@@ -3,24 +3,23 @@
 # root * /srv
 # file_server
 
-{
-    # 全局设置
-    auto_https prefer_wildcard
+
+
+:80 {
+    reverse_proxy {
+        to komga.dva.autos
+        transport http {
+            tls
+            tls_insecure_skip_verify
+        }
+        header_up Host {upstream_hostport}
+    }
 }
 
 
-caddyd.dva.autos {
-    # 根目录静态文件服务
-    # root * /srv
-    # file_serv
-
-    @http {
-        protocol http
-    }
-    redir @http https://{host}{uri} permanent
-
-    # 代理到本地 Komga 服务
-    reverse_proxy komga.dva.autos {
+:443 {
+    reverse_proxy {
+        to komga.dva.autos
         transport http {
             tls
             tls_insecure_skip_verify
