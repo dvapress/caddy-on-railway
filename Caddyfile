@@ -5,7 +5,7 @@
 
 {
     # 全局设置
-    auto_https enable
+    auto_https on
 }
 
 
