@@ -5,7 +5,7 @@
 
 {
     # 全局设置
-    auto_https on
+    auto_https prefer_wildcard
 }
 
 
