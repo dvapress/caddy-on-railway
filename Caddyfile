@@ -6,11 +6,15 @@
 
 caddyd.dva.autos {
     # 根目录静态文件服务
-    root * /srv
-    file_server
+    # root * /srv
+    # file_serv
 
     # 代理到本地 Komga 服务
-    handle_path /komga/* {
-        reverse_proxy komga.dva.autos
+    reverse_proxy https://komga.dva.autos {
+        transport http {
+            tls
+            tls_insecure_skip_verify
+        }
+        header_up Host {upstream_hostport}
     }
 }
